@@ -58,18 +58,21 @@ public:
     }
 
     // Вивід у потік
-    friend ostream& operator<<(ostream& out, const ColorPoint& cp) {
+    friend ostream& operator<<(ostream& out, const ColorPoint& cp) ;
+
+    // Введення з потоку
+    friend istream& operator>>(istream& in, ColorPoint& cp) ;
+};
+ ostream& operator<<(ostream& out, const ColorPoint& cp) {
         out << "(" << cp.x << ", " << cp.y << ", " << cp.color << ")";
         return out;
     }
 
     // Введення з потоку
-    friend istream& operator>>(istream& in, ColorPoint& cp) {
+    istream& operator>>(istream& in, ColorPoint& cp) {
         in >> cp.x >> cp.y >> cp.color;
         return in;
     }
-};
-
 // Головна функція
 int main() {
     ColorPoint a(5, 10, "red");    // створення об'єкта
